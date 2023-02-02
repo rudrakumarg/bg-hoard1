@@ -6,6 +6,9 @@
     "postinstall": "husky install",
     "pre-commit": "yarn nx workspace-generator update-scope-schema"
   },
+  "nx": {
+    "implicitDependencies": "*"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~15.1.0",
