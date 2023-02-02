@@ -3,6 +3,15 @@ name: Run CI checks # The name will show up on the GitHub Actions dashboard
 on: [pull_request] # This workflow will run only on Pull Requests
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Building affected apps
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: bahmutov/npm-install@v1
+      - run: npx nx test store
   test:
     runs-on: ubuntu-latest
     name: Testing affected apps
