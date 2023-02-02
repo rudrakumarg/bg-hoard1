@@ -7,7 +7,9 @@
     "pre-commit": "yarn nx workspace-generator update-scope-schema"
   },
   "nx": {
-    "implicitDependencies": "*"
+    "implicitDependencies": {
+      ".github/workflows/ci.yml": "*"
+    }
   },
   "private": true,
   "dependencies": {
