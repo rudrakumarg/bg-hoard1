@@ -8,9 +8,9 @@ import {
   installPackagesTask,
   Tree,
 } from '@nrwl/devkit';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import * as path from 'path';
 import { UtilLibGeneratorSchema } from './schema';
-import { libraryGenerator } from '@nrwl/workspace/generators';
 
 interface NormalizedSchema extends UtilLibGeneratorSchema {
   projectName: string;
@@ -49,7 +49,7 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
     generateFiles(tree, path.join(__dirname, 'files'), options.projectRoot, templateOptions);
 }
 
-export default async function (tree: Tree, schema: UtilLibGeneratorSchema, options: UtilLibGeneratorSchema) {
+export default async function (tree: Tree, options: UtilLibGeneratorSchema) {
   
   const normalizedOptions = normalizeOptions(tree, options);
   addProjectConfiguration(
@@ -68,10 +68,7 @@ export default async function (tree: Tree, schema: UtilLibGeneratorSchema, optio
     }
   );
   addFiles(tree, normalizedOptions);
-  console.log(schema);
-  await libraryGenerator(tree, {
-    name: `util-${schema.name}`,
-  });
+  
   await formatFiles(tree);
   return () => {
     installPackagesTask(tree);
