@@ -26,6 +26,7 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@ngrx/component-store": "^15.2.1",
     "@nrwl/angular": "^15.6.3",
     "@nrwl/nest": "^15.6.3",
     "@nrwl/nx-cloud": "^15.0.3",
